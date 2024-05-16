@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     resetButton.addEventListener('click', function(){
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            cchrom.tabs.sendMessage(tabs[0])
-        })
-    })
-})
+            chrome.tabs.sendMessage(tabs[0].id, {action: 'reset'});
+        });
+    });
+});
