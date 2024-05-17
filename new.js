@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let  playButton = document.getElementById('playButton');
+    let  immigrant = document.getElementById('immigrant');
     let replayButton = document.getElementById('replayButton');
-    var playAudio = new Audio('10 Immigrant Song.mp3');
+    let stopButton = document.getElementById('stopButton')
+    var playAudio = new Audio('Led Zeppelin Immigrant Song.mp3');
 
-    playButton.addEventListener('click', function(){
+    immigrant.addEventListener('click', function(){
 
         playAudio.play();
         });
@@ -12,6 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
           playAudio.pause()
           playAudio.currentTime = 0
           playAudio.play()
+        });
+
+    stopButton.addEventListener('click', function(){
+       playAudio.pause()
     });
     });
 
