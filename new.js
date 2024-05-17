@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let convertButton = document.getElementById('convertButton');
-    let resetButton = document.getElementById('resetButton');
+    let  playButton = document.getElementById('playButton');
+    let replayButton = document.getElementById('replayButton');
+    var playAudio = new Audio('10 Immigrant Song.mp3');
 
-    convertButton.addEventListener('click', function(){
-        chrome.tabs.query({active :true, currentWindow: true}, function(tabs){
-            chrome.tabs.sendMessage(tabs[0].id, {action: 'convert'});
+    playButton.addEventListener('click', function(){
+
+        playAudio.play();
         });
+
+    replayButton.addEventListener('click', function() {
+          playAudio.pause()
+          playAudio.currentTime = 0
+          playAudio.play()
+    });
     });
 
-    resetButton.addEventListener('click', function(){
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {action: 'reset'});
-        });
-    });
-});
+
